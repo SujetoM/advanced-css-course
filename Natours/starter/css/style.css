@@ -6,3 +6,184 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/*Universal Selector: Asignar estas propiedades a toda la pagina*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh; /*El alto del viewport que debe usar*/
+  background-image: linear-gradient(
+    to right bottom,
+    #7fd570cc, #27b385cc),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative; /*los postions de los hijos funcionan con esto*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*da la forma al div*/
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*ubica el pivote en el centro del div*/
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden; /*para la animacion, xsiacaso*/
+  margin-bottom: 60px;
+}
+
+.heading-primary-main {
+  display: block; /*block ocupa todo el ancho*/
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation-name: moveInLeft; /*Llamar la animacion*/
+  animation-duration: 1s;
+  animation-timing-function: ease-out; /*empieza rapido luego despacio, ver documentacion*/
+  /*animation-delay: 3s;
+  animation-iteration-count: 3;*/
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  animation: moveInRight 1s ease-out; /*otra forma*/
+}
+
+/*Animacion
+  Los exploradores estan optiomosados para usar
+  transform y opacity
+*/
+@keyframes moveInLeft {
+  /*inicio de la animacion*/
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  /*fin de la animacion*/
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /*inicio de la animacion*/
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /*fin de la animacion*/
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /*inicio de la animacion*/
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /*fin de la animacion*/
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s; /*estado inicial de la animacion*/
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn:after {
+  content: ""; /*siempre debe haber content*/
+  display: inline-block; /*siempre debe haber display*/
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white:after {
+  background-color: #fff;
+}
+
+/*after solo cuando esta en hover*/
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards; /*aplica lo que este especificado al inicio de la animacion*/
+}
