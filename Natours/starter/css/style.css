@@ -1,28 +1,19 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
+@charset "UTF-8";
 /*Universal Selector: Asignar estas propiedades a toda la pagina*/
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; /*forzar herencia del box-sizing*/
-}
+  box-sizing: inherit;
+  /*forzar herencia del box-sizing*/ }
 
 /*Default font size in browsers: 16px
   Es buena practica usar porcentaje para
   no afectar cambios de tamaño de font en el browser
 */
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -31,65 +22,63 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 .header {
-  height: 95vh; /*El alto del viewport que debe usar*/
-  background-image: linear-gradient(
-    to right bottom,
-    #7fd570cc, #27b385cc),
-    url("../img/hero.jpg");
+  height: 95vh;
+  /*El alto del viewport que debe usar*/
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
-  position: relative; /*los postions de los hijos funcionan con esto*/
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*da la forma al div*/
-}
+  position: relative;
+  /*los postions de los hijos funcionan con esto*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*da la forma al div*/ }
 
 .header__logo-box {
   position: absolute;
   top: 4rem;
-  left: 4rem;
-}
+  left: 4rem; }
 
 .header__logo {
-  height: 3.5rem;
-}
+  height: 3.5rem; }
 
 .header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%); /*ubica el pivote en el centro del div*/
-  text-align: center;
-}
+  transform: translate(-50%, -50%);
+  /*ubica el pivote en el centro del div*/
+  text-align: center; }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  backface-visibility: hidden; /*para la animacion, xsiacaso*/
-  margin-bottom: 6rem;
-}
+  backface-visibility: hidden;
+  /*para la animacion, xsiacaso*/
+  margin-bottom: 6rem; }
 
 .heading-primary--main {
-  display: block; /*block ocupa todo el ancho*/
+  display: block;
+  /*block ocupa todo el ancho*/
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
-  animation-name: moveInLeft; /*Llamar la animacion*/
+  animation-name: moveInLeft;
+  /*Llamar la animacion*/
   animation-duration: 1s;
-  animation-timing-function: ease-out; /*empieza rapido luego despacio, ver documentacion*/
+  animation-timing-function: ease-out;
+  /*empieza rapido luego despacio, ver documentacion*/
   /*animation-delay: 3s;
-  animation-iteration-count: 3;*/
-}
+  animation-iteration-count: 3;*/ }
 
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; /*otra forma*/
-}
+  animation: moveInRight 1s ease-out;
+  /*otra forma*/ }
 
 /*Animacion
   Los exploradores estan optiomosados para usar
@@ -99,51 +88,35 @@ body {
   /*inicio de la animacion*/
   0% {
     opacity: 0;
-    transform: translateX(-10rem);
-  }
-
+    transform: translateX(-10rem); }
   80% {
-    transform: translateX(1rem);
-  }
-
+    transform: translateX(1rem); }
   /*fin de la animacion*/
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 @keyframes moveInRight {
   /*inicio de la animacion*/
   0% {
     opacity: 0;
-    transform: translateX(10prem);
-  }
-
+    transform: translateX(10prem); }
   80% {
-    transform: translateX(-1rem);
-  }
-
+    transform: translateX(-1rem); }
   /*fin de la animacion*/
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 @keyframes moveInBottom {
   /*inicio de la animacion*/
   0% {
     opacity: 0;
-    transform: translateY(3rem);
-  }
-
+    transform: translateY(3rem); }
   /*fin de la animacion*/
   100% {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
+    transform: translateY(0); } }
 
 .btn:link,
 .btn:visited {
@@ -152,29 +125,28 @@ body {
   padding: 1.5rem 4rem;
   display: inline-block;
   border-radius: 10rem;
-  transition: all .2s; /*estado inicial de la animacion*/
+  transition: all .2s;
+  /*estado inicial de la animacion*/
   position: relative;
-  font-size: 1.6rem;
-}
+  font-size: 1.6rem; }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .btn:active {
-  transform: translateY(-.1rem);
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-}
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
 .btn--white {
   background-color: #fff;
-  color: #777;
-}
+  color: #777; }
 
 .btn:after {
-  content: ""; /*siempre debe haber content*/
-  display: inline-block; /*siempre debe haber display*/
+  content: "";
+  /*siempre debe haber content*/
+  display: inline-block;
+  /*siempre debe haber display*/
   height: 100%;
   width: 100%;
   border-radius: 10rem;
@@ -182,20 +154,17 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .4s;
-}
+  transition: all .4s; }
 
 .btn--white:after {
-  background-color: #fff;
-}
+  background-color: #fff; }
 
 /*after solo cuando esta en hover*/
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
+  opacity: 0; }
 
 .btn--animated {
   animation: moveInBottom .5s ease-out .75s;
-  animation-fill-mode: backwards; /*aplica lo que este especificado al inicio de la animacion*/
-}
+  animation-fill-mode: backwards;
+  /*aplica lo que este especificado al inicio de la animacion*/ }
