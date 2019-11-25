@@ -1,0 +1,53 @@
+/*Animacion
+  Los exploradores estan optiomosados para usar
+  transform y opacity
+*/
+@keyframes moveInLeft {
+  /*inicio de la animacion*/
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  /*fin de la animacion*/
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /*inicio de la animacion*/
+  0% {
+    opacity: 0;
+    transform: translateX(10prem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  /*fin de la animacion*/
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /*inicio de la animacion*/
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  /*fin de la animacion*/
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

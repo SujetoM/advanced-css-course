@@ -1,0 +1,21 @@
+/*Universal Selector: Asignar estas propiedades a toda la pagina*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*forzar herencia del box-sizing*/
+}
+
+/*Default font size in browsers: 16px
+  Es buena practica usar porcentaje para
+  no afectar cambios de tamaño de font en el browser
+*/
+html {
+  // define cuanto es 1rem
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
