@@ -7,6 +7,7 @@
   background-size: cover;
   background-position: top;
   position: relative; /*los postions de los hijos funcionan con esto*/
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*da la forma al div*/
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*da la forma al div*/
 
   &__logo-box {  //& funciona para copiar el nombre de la clase en este caso header
